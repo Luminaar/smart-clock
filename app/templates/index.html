@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<a href="/edit">Add new</a>
+
+<ul>
+{% for a in alarms.values() %}
+
+  {% if a.enabled %}
+  <li class="alarm_enabled">
+  {% else %}
+  <li class="alarm_disabled">
+  {% endif %}
+    <span class="alarm_name">
+      {{ a.name }}
+    </span>
+    <span class="alarm_time">
+      {{ a.hour }}:{{ a.minute }}
+    </span>
+    <span class="alarm_owner">
+      {{ a.owner }}
+    </span>
+
+
+    {% from "_helpers.html" import render_day %}
+    {% for day in ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] %}
+      {{ render_day(day, getattr(a, day)) }}
+    {% endfor %}
+
+    <span class="">
+    </span>
+
+    <span class="edit_link">
+      <a href="/edit?id={{ a.id }}">Edit</a>
+    </span>
+
+    <span class="delete_link">
+      <a href="/edit?delete={{ a.id }}">Delete</a>
+    </span>
+  </li>
+
+
+
+
+{% endfor %}
+</ul>
+
+<div>
+</div>
+
+{% endblock %}

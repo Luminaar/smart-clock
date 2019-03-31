@@ -1,0 +1,5 @@
+Flask
+WTForms
+pytest
+pydub
+simpleaudio

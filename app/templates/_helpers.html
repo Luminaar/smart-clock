@@ -1,0 +1,35 @@
+{% macro render_field(field, checked=False) %}
+  <span class="form-field">
+    <span class="form-label">
+      {{ field.label }}
+    </span>
+    <span class="form-input">
+      {{ field(**kwargs)|safe }}
+    </span>
+  </span>
+{% endmacro %}
+
+{% macro render_checkbox_field(field, checked) %}
+  <span class="form-field">
+    <span class="form-label">
+      {{ field.label }}
+    </span>
+    <span class="form-input">
+      {{ field(checked=checked, **kwargs)|safe }}
+    </span>
+  </span>
+{% endmacro %}
+
+{% macro render_day(day, enabled) %}
+  {% if enabled %}
+  <span class="alarm_day day_enabled">
+    {{ day }}
+  </span>
+  {% else %}
+  <span class="alarm_day day_disabled">
+    {{ day }}
+  </span>
+  {% endif %}
+{% endmacro %}
+
+

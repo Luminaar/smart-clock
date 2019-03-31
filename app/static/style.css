@@ -1,0 +1,19 @@
+body > * {
+  font-size: 150%;
+}
+
+div {
+  margin: 10px;
+}
+
+.day_enabled {
+  color: blue
+}
+
+.day_disabled {
+  color: red
+}
+
+.alarm_disabled > * {
+  color: grey
+}

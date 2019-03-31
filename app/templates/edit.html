@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div id="param-form" class="select">
+  {% from "_helpers.html" import render_field %}
+  {% from "_helpers.html" import render_checkbox_field %}
+  <form method="POST" action="#">
+    <div>
+      {{ render_checkbox_field(form.enabled, alarm.enabled) }}
+    </div>
+    <div>
+      {{ render_field(form.name) }}
+      {{ render_field(form.owner) }}
+    </div>
+    <div>
+      {{ render_field(form.hour) }}
+      {{ render_field(form.minute) }}
+    </div>
+    <div>
+      {{ render_checkbox_field(form.mon, alarm.mon) }}
+      {{ render_checkbox_field(form.tue, alarm.tue) }}
+      {{ render_checkbox_field(form.wed, alarm.wed) }}
+      {{ render_checkbox_field(form.thu, alarm.thu) }}
+      {{ render_checkbox_field(form.fri, alarm.fri) }}
+      {{ render_checkbox_field(form.sat, alarm.sat) }}
+      {{ render_checkbox_field(form.sun, alarm.sun) }}
+    </div>
+    <div>
+      {{ render_field(form.snooze_duration) }}
+      {{ render_field(form.snooze_count) }}
+    </div>
+    <div>
+      {{ render_checkbox_field(form.soft, alarm.soft) }}
+    </div>
+      <span class="form-field">
+        <input type=submit value=Odeslat>
+      </span>
+  </form>
+</div>
+
+{% endblock %}
